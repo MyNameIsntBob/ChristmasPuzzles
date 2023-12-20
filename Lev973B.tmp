@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg0i05rm4hc43"]
+
+[ext_resource type="Script" path="res://LevelSelect.gd" id="1_5f2ma"]
+[ext_resource type="Texture2D" uid="uid://btiw2v4nlkbl" path="res://Images/ChristmasMeeting.jpg" id="1_y1mpt"]
+
+[node name="LevelSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_5f2ma")
+
+[node name="Image" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_y1mpt")
+
+[node name="Button" type="Button" parent="Image"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1500.0
+offset_top = -1000.0
+offset_right = -1500.0
+offset_bottom = -1000.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[connection signal="pressed" from="Image/Button" to="." method="_on_button_pressed"]

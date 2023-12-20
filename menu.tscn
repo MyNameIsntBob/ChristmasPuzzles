@@ -1,0 +1,64 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbd5yc8smw350"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_fhmh0"]
+
+[node name="Menu" type="Node2D" node_paths=PackedStringArray("level_select_holder")]
+script = ExtResource("1_fhmh0")
+level_select_holder = NodePath("CanvasLayer/CenterContainer/Maps")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Maps" type="GridContainer" parent="CanvasLayer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 350
+theme_override_constants/v_separation = 210
+columns = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 64.0
+offset_top = 558.0
+offset_right = 442.0
+offset_bottom = 598.0
+
+[node name="CheckBox" type="CheckBox" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Easy Mode (Fewer Pieces Per Puzzle)"
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer2"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "Select Your Puzzle"
+
+[connection signal="toggled" from="CanvasLayer/HBoxContainer/CheckBox" to="." method="_on_check_box_toggled"]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2jo1othuebde"]
+
+[ext_resource type="Script" path="res://adjacent_checker.gd" id="1_g3qbd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nuvhs"]
+size = Vector2(2, 2)
+
+[node name="AdjacentChecker" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_g3qbd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nuvhs")
+metadata/_edit_lock_ = true
+
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
+[connection signal="area_shape_exited" from="." to="." method="_on_area_shape_exited"]
